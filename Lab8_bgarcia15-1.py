@@ -10,6 +10,7 @@ def find_UPC(upc):
         upc: A string representing a UPC code."""
     print(f"The first 11 digits are: {upc[:-1]}.")
     print(f"\nThe provided check digit is {upc[-1]}")
+    print("\nCalculating check digit...")
     #initialize odd and even sums for algorithm
     sum_odd = 0
     sum_even = 0
@@ -29,6 +30,7 @@ def find_UPC(upc):
         check_digit = 0
     else:
         check_digit = 10 - modulo 
+    print(f"\nThe calculated check digit is {check_digit}.")
     
     #cast the last digit of the UPC code to an integer and compare it to the calculated check digit
     if check_digit == int(upc[-1]):
