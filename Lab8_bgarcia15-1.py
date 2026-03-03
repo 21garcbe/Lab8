@@ -8,6 +8,8 @@ def find_UPC(upc):
     """Checks if the provided UPC code is valid or not.
     Args:
         upc: A string representing a UPC code."""
+    print(f"The first 11 digits are: {upc[:-1]}.")
+    print(f"\nThe provided check digit is {upc[-1]}")
     #initialize odd and even sums for algorithm
     sum_odd = 0
     sum_even = 0
@@ -28,6 +30,12 @@ def find_UPC(upc):
     else:
         check_digit = 10 - modulo 
     
+    #cast the last digit of the UPC code to an integer and compare it to the calculated check digit
+    if check_digit == int(upc[-1]):
+        print("The UPC code is valid.")
+    else:
+        print("The UPC code is invalid.")
+
     return check_digit
 
 
@@ -44,8 +52,3 @@ while invalid_entry:
         print("Validating UPC code...")
         break
 check_digit = find_UPC(upc)
-#cast the last digit of the UPC code to an integer and compare it to the calculated check digit
-if check_digit == int(upc[-1]):
-    print("The UPC code is valid.")
-else:
-    print("The UPC code is invalid.")
