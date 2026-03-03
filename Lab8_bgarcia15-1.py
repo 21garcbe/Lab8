@@ -4,7 +4,6 @@ Author: Ben Garcia
 Program that validates user provided 12 digit UPC-A codes,
 
 """
-#find_UPC function
 def find_UPC(upc):
     """Checks if the provided UPC code is valid or not.
     Args:
@@ -20,7 +19,6 @@ def find_UPC(upc):
     for i in range(1, 11, 2):
         sum_even += int(upc[i])
 
-    #calculate total sum
     total_sum = sum_odd + sum_even
 
     #calculate check digit (= total sum mod 10, if 0 check digit is 0, otherwise it is 10 - mod 10)
@@ -44,5 +42,10 @@ while invalid_entry:
     else:
         invalid_entry = False
         print("Validating UPC code...")
-
-
+        break
+check_digit = find_UPC(upc)
+#cast the last digit of the UPC code to an integer and compare it to the calculated check digit
+if check_digit == int(upc[-1]):
+    print("The UPC code is valid.")
+else:
+    print("The UPC code is invalid.")
