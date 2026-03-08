@@ -42,13 +42,18 @@ def find_UPC(upc):
         check_digit = 10 - modulo 
     print(f"\nThe calculated check digit is {check_digit}.")
     
-    #compare provided check digit to the calculated check digit
+    return check_digit
+
+def validate_UPC(upc, check_digit):
+    """Compares the calculated check digit from find_UPC function to the last digit of the UPC and prints if the UPC is valid or not.
+    Args:
+        upc: A string representing a UPC code.
+        check_digit: An integer representing the calculated check digit for the provided UPC.
+    """
     if check_digit == int(upc[-1]):
-        print("The UPC code is valid.")
+        print("\nThe UPC code is valid.")
     else:
-        print("The UPC code is invalid.")
-
-
+        print("\nThe UPC code is invalid.")
 
 #Main program
 print("Welcome to the UPC Validator!\n")
@@ -63,3 +68,4 @@ while invalid_entry:
         print("Validating UPC code...")
         break
 check_digit = find_UPC(upc)
+validate_UPC(upc, check_digit)
